@@ -1,0 +1,26 @@
+<%= form_for(@timeslot, url: admin_timeslots_path) do |f| %>
+  <% if @timeslot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@timeslot.errors.count, "error") %> prohibited this timeslot from being saved:</h2>
+
+      <ul>
+      <% @timeslot.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ddate %><br>
+    <%= f.date_select :ddate %>
+  </div>
+  <div class="field">
+    <%= f.label :dtime %><br>
+    <%= f.select :dtime, options_for_select(%w[5:00am-8:00pm 8:00am-11:00am 12:00pm-3:00pm 3:00pm-6:00pm 6:00pm-9:00pm]) %>
+    
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<%= form_for(@areamanager, url: admin_areamanagers_path) do |f| %>
+
+  <div class="field">
+    <%= f.label :zipcode %><br>
+    <%= f.number_field :zipcode %>
+  </div>
+  <div class="field">
+    <%= f.label :zone %><br>
+    <%= f.number_field :zone %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Select Delivery Slots</h3>
+  </div>
+  <div class="panel-body" data-hook="shipping_method_inner">
+    <table class="table delivery-slots">
+            <colgroup>
+              <col style="width: 15%;" />
+              <col style="width: 85%;" />
+            </colgroup>
+            <thead>
+              <tr class="active">
+                <th align='left'>Date</th>
+                <th>Time Slots </th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= form.fields_for :shipments do |f| %>
+                  
+                    <% allslots = Spree::Timeslot.where(ddate: Date.today..(Date.today + 10.days)) %> 
+                    <% @ddates = allslots.group_by(&:ddate) %>    
+                    <% @ddates.each_pair do |dates, dtimes| %>
+                    <tr class="deliverytime-item">
+                    <td>
+                      <%= dates %> </td>
+                    <td>
+                      <% dtimes.each do |time| %>
+                      <%= f.radio_button  :timeslot_id, time.id %> <%= time.dtime %>
+                      <% end %>
+                     </td>
+                 </tr> <%end%>
+               <%end%>
+                
+                  
+                
+            </tbody>
+          </table>
+    
+    
+  </div>
+</div>
+
+<div class="well text-right form-buttons" data-hook="buttons">
+  <%= submit_tag Spree.t(:save_and_continue), :class => 'btn btn-lg btn-success' %>
+</div>

@@ -1,0 +1,27 @@
+<h1>Listing areamanagers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Zipcode</th>
+      <th>Zone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @areamanagers.each do |areamanager| %>
+      <tr>
+        <td><%= areamanager.zipcode %></td>
+        <td><%= areamanager.zone %></td>
+        <td><%= link_to 'Show', [:admin, areamanager] %></td>
+        <td><%= link_to 'Edit', edit_admin_areamanager_path(areamanager) %></td>
+        <td><%= link_to 'Destroy', [:admin, areamanager], confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Areamanager', new_admin_areamanager_path %>

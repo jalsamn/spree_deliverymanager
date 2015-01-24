@@ -1,0 +1,5 @@
+<div data-hook="admin_order_edit_header">
+  
+  <% shipment = Spree::Shipment.find_by order_id: @order.id %> <% tslt = Spree::Timeslot.find_by id: shipment.timeslot_id %>
+  <h5> Delivery Date: <%= tslt.ddate %> <%= tslt.ddate.strftime("%A") %>  , Delivery Time: <%= tslt.dtime %>  </h5><br>
+</div>

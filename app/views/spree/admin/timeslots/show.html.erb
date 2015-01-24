@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ddate:</strong>
+  <%= @timeslot.ddate %>
+</p>
+
+<p>
+  <strong>Dtime:</strong>
+  <%= @timeslot.dtime %>
+</p>
+
+<%= link_to 'Edit', edit_timeslot_path(@timeslot) %> |
+<%= link_to 'Back', timeslots_path %>
